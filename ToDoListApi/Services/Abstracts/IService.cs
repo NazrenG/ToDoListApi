@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace ToDoListApi.Services.Abstracts
+namespace WebApiFormatter.Services.Abstracts
 {
     public interface IService<T> where T : class
     {

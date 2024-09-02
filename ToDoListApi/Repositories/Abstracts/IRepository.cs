@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace ToDoListApi.Repositories.Abstracts
+namespace WebApiFormatter.Repositories.Abstracts
 {
     public interface IRepository<T> where T : class
     {

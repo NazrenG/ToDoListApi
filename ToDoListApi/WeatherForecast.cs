@@ -1,4 +1,4 @@
-namespace ToDoListApi
+namespace WebApiFormatter
 {
     public class WeatherForecast
     {
