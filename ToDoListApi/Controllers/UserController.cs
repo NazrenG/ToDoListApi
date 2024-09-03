@@ -83,7 +83,7 @@ namespace ToDoListApi.Controllers
 
         // PUT api/<ToDoController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] UserDto value)
+        public async Task<IActionResult> Put(int id, [FromBody] UserAddDto value)
         {
             var item = await _service.GetAsync(p => p.Id == id);
             if (item != null)
@@ -94,7 +94,7 @@ namespace ToDoListApi.Controllers
                 item.Age = value.Age;
                 item.Score = value.Score;
                 await _service.UpdateAsync(item);
-                return Ok(item);
+                return Ok();
             }
             return BadRequest();
 

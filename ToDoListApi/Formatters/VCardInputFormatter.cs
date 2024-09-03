@@ -36,7 +36,7 @@ namespace WebApiFormatter.Formatters
                     Fullname = split[1],
                     SeriaNo = split[2],
                     Age = int.Parse(split[3]),
-                    Score = int.Parse(split[4])
+                    Score = decimal.Parse(split[4])
                 };
 
                 return await InputFormatterResult.SuccessAsync(userDto);
