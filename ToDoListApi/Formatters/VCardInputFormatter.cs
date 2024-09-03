@@ -27,16 +27,12 @@ namespace WebApiFormatter.Formatters
 
 
             
-            var split = content.Split("-");
-            await ReadLineAsync($"{split[0]}", reader, context);
-            await ReadLineAsync($"-", reader, context);
-            await ReadLineAsync($"{split[1]}", reader, context);
-            await ReadLineAsync($"-", reader, context);
+            var split = content.Split("-"); 
             if (split.Length == 5)
             {
-                var userDto = new UserDto
+                var userDto = new UserAddDto()
                 {
-                    Id = int.Parse(split[0]),
+
                     Fullname = split[1],
                     SeriaNo = split[2],
                     Age = int.Parse(split[3]),
@@ -51,23 +47,6 @@ namespace WebApiFormatter.Formatters
 
         }
 
-        private static async Task<string> ReadLineAsync(
-            string expectedText, StreamReader reader, InputFormatterContext context
-             )
-        {
-            var line = await reader.ReadLineAsync();
-
-            if (line is null || !line.StartsWith(expectedText))
-            {
-                var errorMessage = $"Looked for '{expectedText}' and got '{line}'";
-
-                context.ModelState.TryAddModelError(context.ModelName, errorMessage);
-
-
-                throw new Exception(errorMessage);
-            }
-
-            return line;
-        }
+     
     }
 }
